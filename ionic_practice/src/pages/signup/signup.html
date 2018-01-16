@@ -1,0 +1,42 @@
+<ion-content padding>
+
+  <ion-header>
+    <ion-navbar>
+      <ion-title>Sign Up</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content padding>
+
+    <form [formGroup]="formgroup">
+
+    <ion-list>
+
+      <ion-item>
+        <ion-label floating>ID</ion-label>
+        <ion-input type="text" formControlName="id"  #idValue></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="id.hasError('required') && id.touched">
+        <p style="color: red;">*ID is required</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" formControlName="password" #passwordValue></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="password.hasError('required') && password.touched">
+        <p style="color: red;">*Password is required</p>
+      </ion-item>
+
+      <button ion-button round (click)="goHomePage()">Back</button>
+      <button ion-button round (click)="SignUp()">Sign Up</button>
+
+    </ion-list>
+
+    </form>
+
+  </ion-content>
+
+</ion-content>
